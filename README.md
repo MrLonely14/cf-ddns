@@ -357,7 +357,7 @@ GOOS=windows GOARCH=amd64 go build -o cf-ddns-windows-amd64.exe
 ```
 
 ### Running Tests
-
+- not exsist yet
 ```bash
 go test -v ./...
 ```
