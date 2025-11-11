@@ -10,9 +10,9 @@ import (
 
 // Config represents the application configuration
 type Config struct {
-	Cloudflare   CloudflareConfig `yaml:"cloudflare"`
+	Cloudflare    CloudflareConfig `yaml:"cloudflare"`
 	CheckInterval string           `yaml:"check_interval"`
-	Records      []DNSRecord       `yaml:"records"`
+	Records       []DNSRecord      `yaml:"records"`
 }
 
 // CloudflareConfig holds Cloudflare API credentials
