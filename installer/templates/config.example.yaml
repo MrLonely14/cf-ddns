@@ -1,0 +1,37 @@
+# Cloudflare Dynamic DNS Configuration
+
+cloudflare:
+  # Your Cloudflare API token with DNS edit permissions
+  # Create one at: https://dash.cloudflare.com/profile/api-tokens
+  api_token: "your-cloudflare-api-token-here"
+
+# How often to check for IP address changes (e.g., 5m, 10m, 1h)
+check_interval: "5m"
+
+# DNS records to update
+records:
+  # Example: Home domain with both IPv4 and IPv6
+  - zone_id: "your-zone-id-here"
+    name: "home.example.com"
+    types: ["A", "AAAA"]  # A = IPv4, AAAA = IPv6
+    ttl: 120              # Time to live in seconds (60-86400)
+    proxied: false        # Whether to proxy through Cloudflare
+
+  # Example: IPv4 only record
+  - zone_id: "your-zone-id-here"
+    name: "vpn.example.com"
+    types: ["A"]
+    ttl: 300
+    proxied: false
+
+  # Example: Root domain with IPv4
+  - zone_id: "your-zone-id-here"
+    name: "example.com"
+    types: ["A"]
+    ttl: 120
+    proxied: true  # Enable Cloudflare proxy for this record
+
+# Notes:
+# - Find your Zone ID in the Cloudflare dashboard (domain overview page, right sidebar)
+# - TTL: Lower values mean faster DNS updates but more queries
+# - Proxied: Set to true to hide your real IP and use Cloudflare's CDN

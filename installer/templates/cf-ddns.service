@@ -1,0 +1,23 @@
+[Unit]
+Description=Cloudflare Dynamic DNS Updater
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User={{.User}}
+ExecStart={{.ExecPath}} run -config {{.ConfigPath}}
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths={{.ConfigDir}}
+
+[Install]
+WantedBy=multi-user.target
