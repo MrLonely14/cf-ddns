@@ -21,17 +21,33 @@ A lightweight, cross-platform daemon that automatically updates Cloudflare DNS r
 
 ### Download Pre-built Binaries
 
-Download the latest release for your platform from the [Releases](https://github.com/MrLonely14/cf-ddns/releases) page:
+Download the latest release for your platform from the [Releases](https://github.com/MrLonely14/cf-ddns/releases) page.
 
-- **Linux**: `cf-ddns-linux-amd64`, `cf-ddns-linux-arm64`, `cf-ddns-linux-armv7`
-- **macOS**: `cf-ddns-darwin-amd64` (Intel), `cf-ddns-darwin-arm64` (Apple Silicon)
-- **Windows**: `cf-ddns-windows-amd64.exe`
-
-Make the binary executable (Linux/macOS):
+**Linux:**
 ```bash
-chmod +x cf-ddns-*
-sudo mv cf-ddns-* /usr/local/bin/cf-ddns
+# Download and extract (replace VERSION with actual version, e.g., v1.0.0)
+wget https://github.com/MrLonely14/cf-ddns/releases/download/VERSION/cf-ddns_VERSION_linux_amd64.tar.gz
+tar -xzf cf-ddns_VERSION_linux_amd64.tar.gz
+sudo mv cf-ddns /usr/local/bin/
 ```
+
+**macOS:**
+```bash
+# Intel Macs
+wget https://github.com/MrLonely14/cf-ddns/releases/download/VERSION/cf-ddns_VERSION_darwin_amd64.tar.gz
+tar -xzf cf-ddns_VERSION_darwin_amd64.tar.gz
+sudo mv cf-ddns /usr/local/bin/
+
+# Apple Silicon (M1/M2/M3)
+wget https://github.com/MrLonely14/cf-ddns/releases/download/VERSION/cf-ddns_VERSION_darwin_arm64.tar.gz
+tar -xzf cf-ddns_VERSION_darwin_arm64.tar.gz
+sudo mv cf-ddns /usr/local/bin/
+```
+
+**Windows:**
+1. Download `cf-ddns_VERSION_windows_amd64.zip` from releases
+2. Extract the ZIP file
+3. Run `cf-ddns.exe` from Command Prompt or PowerShell
 
 ### Build from Source
 
